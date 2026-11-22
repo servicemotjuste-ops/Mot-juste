@@ -68,6 +68,19 @@ input,select,textarea{font:inherit;font-weight:400;padding:12px 14px;border:1px 
 .full{grid-column:1/-1}
 footer{background:var(--ink);color:#E8ECEB;padding:32px 0;font-size:16px}
 footer a{color:#fff}
+.phone{width:min(100%,290px);aspect-ratio:9/16.5;border:8px solid var(--ink);border-radius:34px;background:#fff;overflow:hidden;position:relative;margin:0 auto}
+.phone .bar{height:44px;display:flex;align-items:center;padding:0 14px;font:600 14px Figtree,sans-serif;border-bottom:1px solid var(--line)}
+.post{position:absolute;inset:44px 0 0;padding:12px;opacity:0;animation:cyc 12s infinite}
+.post.p2{animation-delay:4s}.post.p3{animation-delay:8s}
+.tile{aspect-ratio:1;border-radius:10px;display:grid;place-items:center}
+.tile svg{width:62%}
+.post p{font-size:14px;line-height:1.4;margin-top:10px}
+.post b{display:block;font-size:13px;margin-bottom:2px}
+@keyframes cyc{0%{opacity:0;transform:translateY(10px)}5%,30%{opacity:1;transform:none}36%,100%{opacity:0}}
+.ex .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:40px;align-items:center}
+.status{margin-top:12px;font-weight:600}
+.hp{position:absolute;left:-9999px}
+@media (prefers-reduced-motion:reduce){.post{animation:none;opacity:0}.post.p1{opacity:1}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
@@ -98,15 +111,22 @@ footer a{color:#fff}
 <a class="btn alt" href="#plans" data-i18n="cta2">Voir les forfaits</a>
 </div>
 </div>
-<div class="demo" aria-label="Exemple">
-<div class="t" data-i18n="demo_t">Même photo, deux légendes</div>
-<div class="cap before"><small data-i18n="demo_b">Avant</small><span data-i18n="demo_bt">Nouvelle coupe.</span></div>
-<div class="cap after"><small data-i18n="demo_a">Avec Mot juste</small><span data-i18n="demo_at">Une coupe courte pour l’automne, facile à coiffer le matin. Il reste 2 places jeudi : réservez via le lien dans notre bio.</span></div>
+<div class="phone" role="img" aria-label="Exemples de publications">
+<div class="bar">@motjuste</div>
+<div class="post p1"><div class="tile" style="background:#CFE8E1"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="38" cy="88" r="14" fill="none" stroke="#172026" stroke-width="6"/><circle cx="82" cy="88" r="14" fill="none" stroke="#172026" stroke-width="6"/><path d="M46 76L86 20M74 76L34 20" stroke="#172026" stroke-width="7" stroke-linecap="round"/></svg></div><p><b data-i18n="po1t">Coupe d’automne</b><span data-i18n="po1">Il reste 2 places jeudi. Réservez via le lien en bio.</span></p></div>
+<div class="post p2"><div class="tile" style="background:#F7DCCB"><svg viewBox="0 0 120 120" aria-hidden="true"><rect x="54" y="8" width="12" height="26" rx="4" fill="#172026"/><rect x="50" y="32" width="20" height="18" fill="#172026"/><rect x="36" y="48" width="48" height="62" rx="14" fill="#C2385A"/><rect x="45" y="60" width="9" height="34" rx="4.5" fill="#fff" opacity=".4"/></svg></div><p><b data-i18n="po2t">Nouvelle teinte</b><span data-i18n="po2">Une couleur d’hiver qui tient jusqu’aux fêtes.</span></p></div>
+<div class="post p3"><div class="tile" style="background:#DCD6F2"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="46" r="32" fill="#fff" stroke="#172026" stroke-width="6"/><path d="M60 78V110" stroke="#172026" stroke-width="10" stroke-linecap="round"/><path d="M42 38q8-12 22-9" fill="none" stroke="#0B6E6D" stroke-width="5" stroke-linecap="round"/></svg></div><p><b data-i18n="po3t">Avant / après</b><span data-i18n="po3">Le résultat vu par vos clientes, pas par un catalogue.</span></p></div>
 </div>
 </div>
 </div>
 
-<section id="how" class="band">
+<section class="ex band"><div class="wrap"><div><h2 data-i18n="ex_t">Un texte qui donne envie de réserver</h2><p style="margin-top:12px;color:var(--muted)" data-i18n="ex_p">Chaque légende donne une raison précise de réserver : un service, une date, un geste simple.</p></div><div class="demo" aria-label="Exemple">
+<div class="t" data-i18n="demo_t">Même photo, deux légendes</div>
+<div class="cap before"><small data-i18n="demo_b">Avant</small><span data-i18n="demo_bt">Nouvelle coupe.</span></div>
+<div class="cap after"><small data-i18n="demo_a">Avec Mot juste</small><span data-i18n="demo_at">Une coupe courte pour l’automne, facile à coiffer le matin. Il reste 2 places jeudi : réservez via le lien dans notre bio.</span></div>
+</div></div></section>
+
+<section id="how">
 <div class="wrap">
 <h2 data-i18n="how_t">Comment ça marche</h2>
 <ol class="steps">
@@ -117,7 +137,7 @@ footer a{color:#fff}
 </div>
 </section>
 
-<section id="plans">
+<section id="plans" class="band">
 <div class="wrap">
 <h2 data-i18n="plans_t">Forfaits mensuels</h2>
 <div class="plans">
@@ -129,7 +149,7 @@ footer a{color:#fff}
 </div>
 </section>
 
-<section id="faq" class="band">
+<section id="faq">
 <div class="wrap">
 <h2 data-i18n="faq_t">Questions fréquentes</h2>
 <div style="margin-top:24px">
@@ -149,7 +169,8 @@ footer a{color:#fff}
 <label><span data-i18n="f_salon">Nom du salon</span><input name="salon" required autocomplete="organization"></label>
 <label><span data-i18n="f_city">Ville</span><input name="city" required autocomplete="address-level2"></label>
 <label><span data-i18n="f_name">Votre nom</span><input name="name" required autocomplete="name"></label>
-<label><span data-i18n="f_plan">Forfait qui vous intéresse</span>
+<label><span data-i18n="f_email">Votre courriel</span><input name="email" type="email" required autocomplete="email"></label>
+<label class="full"><span data-i18n="f_plan">Forfait qui vous intéresse</span>
 <select name="plan">
 <option value="Essentiel" data-i18n="p1">Essentiel</option>
 <option value="Standard" data-i18n="p2" selected>Standard</option>
@@ -157,8 +178,10 @@ footer a{color:#fff}
 <option value="?" data-i18n="f_unsure">Je ne sais pas encore</option>
 </select></label>
 <label class="full"><span data-i18n="f_msg">Message (facultatif)</span><textarea name="msg" rows="4"></textarea></label>
-<div class="full"><button class="btn" type="submit" data-i18n="f_send">Envoyer par courriel</button>
-<p class="note" data-i18n="f_note">Ce bouton ouvre votre application de courriel. Sinon, écrivez à servicemotjuste@gmail.com.</p></div>
+<input class="hp" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+<div class="full"><button class="btn" type="submit" id="send" data-i18n="f_send">Envoyer ma demande</button>
+<p class="status" id="st" role="status" aria-live="polite"></p>
+<p class="note" data-i18n="f_note">Vos informations servent uniquement à vous répondre. Vous pouvez aussi écrire à servicemotjuste@gmail.com.</p></div>
 </form>
 </div>
 </section>
@@ -189,7 +212,10 @@ q3:"Is the writing generic?",a3:"No. I start from your services, your tone and y
 q4:"In which language?",a4:"In French or English, depending on your clients.",
 c_t:"Ask for your 4 free posts",c_p:"Tell me where you are and what you offer. I’ll reply with a sample.",
 f_salon:"Salon name",f_city:"City",f_name:"Your name",f_plan:"Plan you’re interested in",f_unsure:"Not sure yet",f_msg:"Message (optional)",
-f_send:"Send by email",f_note:"This button opens your email app. Otherwise, write to servicemotjuste@gmail.com."}};
+f_email:"Your email",f_send:"Send my request",f_note:"Your details are only used to reply to you. You can also write to servicemotjuste@gmail.com.",
+po1t:"Fall cut",po1:"Two spots left Thursday. Book through the link in our bio.",po2t:"New shade",po2:"A winter colour that lasts until the holidays.",po3t:"Before / after",po3:"The result your clients see, not a catalogue.",
+ex_t:"Writing that makes people book",ex_p:"Every caption gives a specific reason to book: a service, a date, a simple action."}};
+var M={fr:{sending:"Envoi en cours…",ok:"Merci ! Votre demande est envoyée. Je vous réponds très bientôt.",err:"L’envoi a échoué. Écrivez-moi à servicemotjuste@gmail.com."},en:{sending:"Sending…",ok:"Thank you! Your request was sent. I’ll reply very soon.",err:"Sending failed. Please write to servicemotjuste@gmail.com."}};
 var els=document.querySelectorAll("[data-i18n]");
 els.forEach(function(e){T.fr[e.getAttribute("data-i18n")]=e.textContent});
 var cur="fr";
@@ -201,12 +227,18 @@ document.title=l==="fr"?"Mot juste service | Contenu pour salons au Canada":"Mot
 }
 document.querySelectorAll(".lang button").forEach(function(b){b.addEventListener("click",function(){setLang(b.dataset.lang)})});
 if((navigator.language||"").toLowerCase().indexOf("en")===0)setLang("en");
-document.getElementById("f").addEventListener("submit",function(ev){
+var form=document.getElementById("f"),st=document.getElementById("st"),btn=document.getElementById("send");
+form.addEventListener("submit",function(ev){
 ev.preventDefault();
-var d=new FormData(ev.target),nl="\r\n";
-var subj=(cur==="fr"?"Demande d’essai gratuit : ":"Free trial request: ")+d.get("salon");
-var body=(cur==="fr"?"Salon : ":"Salon: ")+d.get("salon")+nl+(cur==="fr"?"Ville : ":"City: ")+d.get("city")+nl+(cur==="fr"?"Nom : ":"Name: ")+d.get("name")+nl+(cur==="fr"?"Forfait : ":"Plan: ")+d.get("plan")+nl+nl+(d.get("msg")||"");
-window.location.href="mailto:servicemotjuste@gmail.com?subject="+encodeURIComponent(subj)+"&body="+encodeURIComponent(body);
+if(form.elements._honey.value)return;
+var d=new FormData(form);
+var data={name:d.get("name"),salon:d.get("salon"),city:d.get("city"),email:d.get("email"),plan:d.get("plan"),message:d.get("msg"),_subject:"Nouvelle demande d’essai : "+d.get("salon"),_template:"table",_captcha:"false"};
+btn.disabled=true;st.textContent=M[cur].sending;
+fetch("https://formsubmit.co/ajax/servicemotjuste@gmail.com",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(data)})
+.then(function(r){return r.json()})
+.then(function(j){if(j.success===true||j.success==="true"){st.textContent=M[cur].ok;form.reset()}else{throw 0}})
+.catch(function(){st.textContent=M[cur].err})
+.then(function(){btn.disabled=false});
 });
 </script>
 </body>
